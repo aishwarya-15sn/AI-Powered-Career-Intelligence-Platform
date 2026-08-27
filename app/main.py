@@ -112,6 +112,10 @@ st.html(
         visibility: hidden;
     }
 
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+    }
+
     /* ========================================================
        SIDEBAR
        ======================================================== */
