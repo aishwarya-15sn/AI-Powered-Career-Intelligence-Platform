@@ -61,7 +61,7 @@ st.html(
     }
 
     .stApp h1, .stApp h2, .stApp h3, .stApp h4,
-    .hero-title, .top-logo, .sidebar-logo {
+    .hero-title, .sidebar-logo {
         font-family: 'Space Grotesk', 'Inter', sans-serif;
     }
 
@@ -220,54 +220,6 @@ st.html(
         margin-top: 25px;
     }
 
-    /* ========================================================
-       TOP NAV
-       ======================================================== */
-
-    .top-nav {
-        background: rgba(16, 21, 42, 0.78);
-        backdrop-filter: blur(18px);
-
-        border: 1px solid rgba(148, 163, 184, 0.16);
-        border-radius: 18px;
-
-        padding: 13px 20px;
-        margin-bottom: 20px;
-
-        box-shadow:
-            0 8px 30px rgba(0, 0, 0, 0.22);
-    }
-
-    .top-logo {
-        color: #f8fafc;
-        font-size: 22px;
-        font-weight: 950;
-        letter-spacing: -1px;
-    }
-
-    .top-badge {
-        display: inline-block;
-
-        margin-left: 10px;
-        padding: 5px 10px;
-
-        border-radius: 999px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #eef2ff,
-                #f5f3ff
-            );
-
-        border: 1px solid #ddd6fe;
-
-        color: #4f46e5;
-
-        font-size: 9px;
-        font-weight: 950;
-        letter-spacing: .5px;
-    }
 
     /* ========================================================
        HERO
@@ -888,7 +840,7 @@ st.html(
     }
 
     /* Keep emoji/icons visually strong while text stays refined. */
-    .sidebar-active, .sidebar-future, .hero-chip, .top-badge,
+    .sidebar-active, .sidebar-future, .hero-chip,
     .future-label {
         font-family: 'Inter', sans-serif;
     }
@@ -966,19 +918,6 @@ with st.sidebar:
     st.caption(
         "Review-I Working Prototype"
     )
-
-# ============================================================
-# TOP NAV
-# ============================================================
-
-st.html(
-    """
-    <div class="top-nav">
-        <span class="top-logo">🎯 Placify</span>
-        <span class="top-badge">REVIEW-I • WORKING PROTOTYPE</span>
-    </div>
-    """
-)
 
 
 # ============================================================
