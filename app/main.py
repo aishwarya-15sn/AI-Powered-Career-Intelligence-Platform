@@ -39,6 +39,31 @@ st.set_page_config(
 st.html(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+    :root {
+        --placify-bg: #080b18;
+        --placify-surface: #10152a;
+        --placify-surface-2: #151b34;
+        --placify-border: rgba(148, 163, 184, 0.16);
+        --placify-text: #f8fafc;
+        --placify-muted: #a5b4cf;
+        --placify-purple: #a78bfa;
+        --placify-indigo: #818cf8;
+    }
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .stApp {
+        color: var(--placify-text);
+    }
+
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4,
+    .hero-title, .top-logo, .sidebar-logo {
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
 
     /* ========================================================
        GLOBAL
@@ -48,20 +73,29 @@ st.html(
         background:
             radial-gradient(
                 circle at 85% 0%,
-                rgba(99, 102, 241, 0.14),
-                transparent 28%
+                rgba(124, 58, 237, 0.20),
+                transparent 30%
             ),
             radial-gradient(
                 circle at 0% 45%,
-                rgba(236, 72, 153, 0.08),
-                transparent 25%
+                rgba(236, 72, 153, 0.10),
+                transparent 27%
             ),
             linear-gradient(
                 135deg,
-                #f8fafc 0%,
-                #f5f3ff 45%,
-                #f8fafc 100%
+                #080b18 0%,
+                #0d1226 48%,
+                #0a0d1d 100%
             );
+    }
+
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMain"] {
+        background: transparent;
+    }
+
+    [data-testid="stHeader"] {
+        background: rgba(8, 11, 24, 0.75);
     }
 
     .block-container {
@@ -187,21 +221,21 @@ st.html(
        ======================================================== */
 
     .top-nav {
-        background: rgba(255, 255, 255, 0.88);
+        background: rgba(16, 21, 42, 0.78);
         backdrop-filter: blur(18px);
 
-        border: 1px solid rgba(226, 232, 240, 0.90);
+        border: 1px solid rgba(148, 163, 184, 0.16);
         border-radius: 18px;
 
         padding: 13px 20px;
         margin-bottom: 20px;
 
         box-shadow:
-            0 8px 30px rgba(15, 23, 42, 0.06);
+            0 8px 30px rgba(0, 0, 0, 0.22);
     }
 
     .top-logo {
-        color: #111827;
+        color: #f8fafc;
         font-size: 22px;
         font-weight: 950;
         letter-spacing: -1px;
@@ -368,19 +402,19 @@ st.html(
        ======================================================== */
 
     .stApp h1 {
-        color: #172554;
+        color: #f8fafc;
         font-weight: 950;
         letter-spacing: -2px;
     }
 
     .stApp h2 {
-        color: #1e293b;
+        color: #f1f5f9;
         font-weight: 900;
         letter-spacing: -1px;
     }
 
     .stApp h3 {
-        color: #1e293b;
+        color: #e2e8f0;
         font-weight: 850;
     }
 
@@ -390,19 +424,14 @@ st.html(
 
     div[data-testid="stAlert"] {
         border-radius: 15px !important;
-        border: 1px solid #dbeafe !important;
+        border: 1px solid rgba(148, 163, 184, 0.16) !important;
+        background: linear-gradient(135deg, #11172c, #171b36) !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+        color: #e2e8f0 !important;
+    }
 
-        background:
-            linear-gradient(
-                135deg,
-                rgba(239, 246, 255, 0.95),
-                rgba(238, 242, 255, 0.95)
-            ) !important;
-
-        box-shadow:
-            0 7px 22px rgba(79, 70, 229, 0.06);
-
-        color: #334155 !important;
+    div[data-testid="stAlert"] * {
+        color: #e2e8f0 !important;
     }
 
     /* ========================================================
@@ -410,16 +439,16 @@ st.html(
        ======================================================== */
 
     div[data-testid="stMetric"] {
-        background: rgba(255, 255, 255, 0.82);
+        background: rgba(16, 21, 42, 0.88);
 
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.16);
 
         border-radius: 17px;
 
         padding: 16px 10px;
 
         box-shadow:
-            0 7px 24px rgba(15, 23, 42, 0.045);
+            0 7px 24px rgba(0, 0, 0, 0.20);
 
         transition: transform .2s ease,
                     box-shadow .2s ease;
@@ -433,12 +462,12 @@ st.html(
     }
 
     div[data-testid="stMetricLabel"] {
-        color: #64748b !important;
+        color: #94a3b8 !important;
         font-weight: 750;
     }
 
     div[data-testid="stMetricValue"] {
-        color: #4338ca !important;
+        color: #a78bfa !important;
         font-weight: 950;
     }
 
@@ -448,12 +477,12 @@ st.html(
 
     div[data-baseweb="input"] {
         border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.90) !important;
-        border: 1px solid #e2e8f0 !important;
+        background: #11172c !important;
+        border: 1px solid rgba(148, 163, 184, 0.18) !important;
     }
 
     div[data-baseweb="input"]:focus-within {
-        border-color: #818cf8 !important;
+        border-color: #8b5cf6 !important;
 
         box-shadow:
             0 0 0 3px rgba(99, 102, 241, 0.10);
@@ -462,13 +491,13 @@ st.html(
     div[data-baseweb="select"] > div {
         border-radius: 12px !important;
 
-        background: rgba(255, 255, 255, 0.90) !important;
+        background: #11172c !important;
 
         border-color: #e2e8f0 !important;
     }
 
     div[data-baseweb="select"] > div:focus-within {
-        border-color: #818cf8 !important;
+        border-color: #8b5cf6 !important;
     }
 
     /* ========================================================
@@ -478,30 +507,46 @@ st.html(
     section[data-testid="stFileUploaderDropzone"] {
         border-radius: 18px !important;
 
-        border: 2px dashed #c4b5fd !important;
+        border: 2px dashed #a78bfa !important;
 
         background:
             linear-gradient(
                 135deg,
-                #fafaff,
-                #f5f3ff
+                #0b1020,
+                #11172c
             ) !important;
 
         min-height: 125px;
 
         box-shadow:
-            inset 0 0 30px rgba(99, 102, 241, 0.025);
+            inset 0 0 30px rgba(99, 102, 241, 0.06);
     }
 
     section[data-testid="stFileUploaderDropzone"]:hover {
-        border-color: #818cf8 !important;
+        border-color: #c4b5fd !important;
 
         background:
             linear-gradient(
                 135deg,
-                #f5f3ff,
-                #eef2ff
+                #10162a,
+                #17153a
             ) !important;
+    }
+
+    section[data-testid="stFileUploaderDropzone"] * {
+        color: #e2e8f0 !important;
+    }
+
+    section[data-testid="stFileUploaderDropzone"] button {
+        background: #0b1020 !important;
+        color: #f8fafc !important;
+        border: 1px solid #a78bfa !important;
+        border-radius: 10px !important;
+    }
+
+    section[data-testid="stFileUploaderDropzone"] button:hover {
+        background: #17153a !important;
+        border-color: #c4b5fd !important;
     }
 
     /* ========================================================
@@ -554,11 +599,11 @@ st.html(
         background:
             linear-gradient(
                 145deg,
-                #fff1f2 0%,
-                #fee2e2 100%
+                #241522 0%,
+                #21182a 100%
             );
 
-        border: 1px solid #fca5a5;
+        border: 1px solid rgba(167, 139, 250, 0.20);
 
         border-radius: 18px;
 
@@ -587,7 +632,7 @@ st.html(
     }
 
     .future-title {
-        color: #991b1b;
+        color: #e9d5ff;
 
         font-size: 15px;
 
@@ -595,7 +640,7 @@ st.html(
     }
 
     .future-text {
-        color: #7f1d1d;
+        color: #a5b4cf;
 
         font-size: 11px;
 
@@ -632,18 +677,18 @@ st.html(
         background:
             linear-gradient(
                 90deg,
-                #eef2ff,
-                #f5f3ff,
-                #fdf4ff
+                rgba(79,70,229,0.18),
+                rgba(124,58,237,0.16),
+                rgba(217,70,239,0.12)
             );
 
-        border: 1px solid #ddd6fe;
+        border: 1px solid rgba(167,139,250,0.24);
 
         border-radius: 16px;
 
         padding: 16px 18px;
 
-        color: #4338ca;
+        color: #c4b5fd;
 
         margin: 15px 0;
     }
@@ -653,7 +698,7 @@ st.html(
        ======================================================== */
 
     div[data-testid="stProgress"] > div {
-        background: #e0e7ff;
+        background: #252b4a;
         border-radius: 999px;
     }
 
@@ -674,9 +719,9 @@ st.html(
        ======================================================== */
 
     .skill-panel {
-        background: rgba(255, 255, 255, 0.90);
+        background: rgba(16, 21, 42, 0.90);
 
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.16);
 
         border-radius: 18px;
 
@@ -689,7 +734,7 @@ st.html(
     }
 
     .skill-heading {
-        color: #0f172a;
+        color: #f1f5f9;
 
         font-size: 15px;
 
@@ -713,19 +758,15 @@ st.html(
     }
 
     .skill-green {
-        background: #ecfdf5;
-
-        color: #047857;
-
-        border: 1px solid #a7f3d0;
+        background: #102a24;
+        color: #86efac;
+        border: 1px solid rgba(74, 222, 128, 0.28);
     }
 
     .skill-red {
-        background: #fff1f2;
-
-        color: #be123c;
-
-        border: 1px solid #fecdd3;
+        background: #2a151d;
+        color: #fda4af;
+        border: 1px solid rgba(251, 113, 133, 0.28);
     }
 
     /* ========================================================
@@ -733,9 +774,9 @@ st.html(
        ======================================================== */
 
     .resource-card {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(16, 21, 42, 0.92);
 
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.16);
 
         border-radius: 16px;
 
@@ -748,7 +789,7 @@ st.html(
     }
 
     .resource-skill {
-        color: #6366f1;
+        color: #a78bfa;
 
         font-size: 9px;
 
@@ -758,7 +799,7 @@ st.html(
     }
 
     .resource-title {
-        color: #0f172a;
+        color: #f1f5f9;
 
         font-size: 15px;
 
@@ -775,17 +816,17 @@ st.html(
         background:
             linear-gradient(
                 135deg,
-                #fffbeb,
-                #fff7ed
+                #211d16,
+                #261d18
             );
 
-        border: 1px solid #fde68a;
+        border: 1px solid rgba(251,191,36,0.25);
 
         border-radius: 14px;
 
         padding: 13px 15px;
 
-        color: #92400e;
+        color: #fcd34d;
 
         font-size: 11px;
 
@@ -809,7 +850,43 @@ st.html(
 
         padding-top: 22px;
 
-        border-top: 1px solid #e2e8f0;
+        border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    /* ========================================================
+       DARK STREAMLIT CONTROLS
+       ======================================================== */
+
+    .stApp p, .stApp label, .stApp [data-testid="stMarkdownContainer"] {
+        color: #cbd5e1;
+    }
+
+    div[data-baseweb="input"] input,
+    div[data-baseweb="select"] input {
+        color: #f8fafc !important;
+        -webkit-text-fill-color: #f8fafc !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    div[data-baseweb="select"] > div {
+        background: #11172c !important;
+        color: #f8fafc !important;
+        border-color: rgba(148, 163, 184, 0.18) !important;
+    }
+
+    section[data-testid="stFileUploaderDropzone"] {
+        background: linear-gradient(135deg, #11172c, #17153a) !important;
+        color: #cbd5e1 !important;
+    }
+
+    section[data-testid="stFileUploaderDropzone"] * {
+        color: #cbd5e1 !important;
+    }
+
+    /* Keep emoji/icons visually strong while text stays refined. */
+    .sidebar-active, .sidebar-future, .hero-chip, .top-badge,
+    .future-label {
+        font-family: 'Inter', sans-serif;
     }
 
     </style>
@@ -1042,13 +1119,13 @@ for column, (number, icon, title) in zip(
         st.html(
             f"""
             <div style="
-                background: white;
-                border: 1px solid #e2e8f0;
+                background: linear-gradient(145deg, #11172c, #171b36);
+                border: 1px solid rgba(148, 163, 184, 0.16);
                 border-radius: 18px;
                 padding: 18px 8px;
                 text-align: center;
                 min-height: 105px;
-                box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.24);
             ">
                 <div style="
                     font-size: 24px;
@@ -1058,7 +1135,7 @@ for column, (number, icon, title) in zip(
                 </div>
 
                 <div style="
-                    color: #475569;
+                    color: #cbd5e1;
                     font-size: 11px;
                     font-weight: 800;
                 ">
@@ -1066,7 +1143,7 @@ for column, (number, icon, title) in zip(
                 </div>
 
                 <div style="
-                    color: #4f46e5;
+                    color: #a78bfa;
                     font-size: 25px;
                     font-weight: 900;
                     margin-top: 4px;
@@ -1151,12 +1228,12 @@ for col, (icon, title, description) in zip(
         st.html(
             f"""
             <div style="
-                background: linear-gradient(145deg, #fff1f2, #fee2e2);
-                border: 1px solid #fca5a5;
+                background: linear-gradient(145deg, #11172c, #171b36);
+                border: 1px solid rgba(167, 139, 250, 0.20);
                 border-radius: 18px;
                 padding: 20px;
                 min-height: 185px;
-                box-shadow: 0 8px 25px rgba(185,28,28,0.08);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.25);
             ">
                 <div style="
                     font-size: 28px;
@@ -1166,7 +1243,7 @@ for col, (icon, title, description) in zip(
                 </div>
 
                 <div style="
-                    color: #991b1b;
+                    color: #e9d5ff;
                     font-size: 15px;
                     font-weight: 900;
                 ">
@@ -1174,7 +1251,7 @@ for col, (icon, title, description) in zip(
                 </div>
 
                 <div style="
-                    color: #7f1d1d;
+                    color: #a5b4cf;
                     font-size: 11px;
                     line-height: 1.55;
                     margin-top: 7px;
